@@ -11,11 +11,11 @@ Score.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    name: {
-      type: DataTypes.STRING,
+    score: {
+      type: DataTypes.INTEGER,
       allowNull: false,
     },
-    description: {
+    category: {
       type: DataTypes.STRING,
     },
     date_created: {
