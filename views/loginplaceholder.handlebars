@@ -1,4 +1,13 @@
-<!-- component -->
+<!-- Include Handlebars from a CDN -->
+<script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+<script>
+  // compile the template
+  var template = Handlebars.compile("Handlebars <b>{{doesWhat}}</b>");
+  // execute the compiled template and print the output to the console
+  console.log(template({ doesWhat: "rocks!" }));
+</script>
+
+{{!-- <!-- component -->
 <div class="min-h-screen bg-gray-100 flex flex-col justify-center sm:py-12">
     <div class="p-10 xs:p-0 mx-auto md:w-full md:max-w-md">
       <h1 class="font-bold text-center text-2xl mb-5">Your Logo</h1>  
@@ -49,4 +58,15 @@
           </div>
         </div>
     </div>
-  </div>
+  </div> --}}
+
+
+  <div class="min-h-screen bg-gray-100 flex flex-col justify-center sm:py-12">
+  <div class="p-10 xs:p-0 mx-auto md:w-full md:max-w-md">
+    <h1 class="font-bold text-center text-2xl mb-5">Your Logo</h1>  
+    <div class="bg-white shadow w-full rounded-lg divide-y divide-gray-200">
+      <div class="px-5 py-7">
+        <label class="font-semibold text-sm text-gray-600 pb-1 block">E-mail</label>
+        <input type="text" class="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full" />
+        <label class="font-semibold text-sm text-gray-600 pb-1 block">Password</label>
+        <input type="text" class="border rounded
