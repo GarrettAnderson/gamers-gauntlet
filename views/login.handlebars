@@ -1,42 +1,39 @@
-<div class="row">
-  <div class="col-md-6">
-    <h2>Login</h2>
+<html>
+  <head>
+    <title>Login Page</title>
+  </head>
+  <body>
+    <h1>{{quiz.name}}</h1>
+<p>{{quiz.description}}</p>
 
-    <form class="form login-form">
-      <div class="form-group">
-        <label for="email-login">email:</label>
-        <input class="form-input" type="text" id="email-login" />
-      </div>
-      <div class="form-group">
-        <label for="password-login">password:</label>
-        <input class="form-input" type="password" id="password-login" />
-      </div>
-      <div class="form-group">
-        <button class="btn btn-primary" type="submit">login</button>
-      </div>
+{{#each quiz.questions}}
+  <h2>{{this.question}}</h2>
+  {{#each this.answers}}
+    <label>
+      <input type="radio" name="{{../this.question}}">{{this}}
+    </label>
+  {{/each}}
+{{/each}}
+    <h1>Login</h1>
+    <form id="login-form" action="/login" method="POST">
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required><br><br>
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required><br><br>
+      <button type="submit">Login</button>
+      <h1>Register</h1>
+<form id="register-form" action="/api/users" method="POST">
+  <label for="username">Username:</label>
+  <input type="text" id="username" name="username" required><br><br>
+  <label for="email">Email:</label>
+  <input type="email" id="email" name="email" required><br><br>
+  <label for="password">Password:</label>
+  <input type="password" id="password" name="password" required><br><br>
+  <button type="submit">Register</button>
+</form>
     </form>
-  </div>
-  <div class="col-md-6">
-    <h2>Signup</h2>
-
-    <form class="form signup-form">
-      <div class="form-group">
-        <label for="name-signup">name:</label>
-        <input class="form-input" type="text" id="name-signup" />
-      </div>
-      <div class="form-group">
-        <label for="email-signup">email:</label>
-        <input class="form-input" type="text" id="email-signup" />
-      </div>
-      <div class="form-group">
-        <label for="password-signup">password:</label>
-        <input class="form-input" type="password" id="password-signup" />
-      </div>
-      <div class="form-group">
-        <button class="btn btn-primary" type="submit">signup</button>
-      </div>
-    </form>
-  </div>
-</div>
+  </body>
+</html>
 
 <script src="./js/login.js"></script>
+<script src="./js/quizz.js"></script>
