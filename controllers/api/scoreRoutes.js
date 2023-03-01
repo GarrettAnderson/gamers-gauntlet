@@ -6,6 +6,7 @@ router.get('/', async (req, res) => {
       const getScores = await Score.findAll({
         include: {
           model: User
+        
         }
       })
   
@@ -15,4 +16,4 @@ router.get('/', async (req, res) => {
     }
   })
 
-module.exports = Score
+module.exports = router;
