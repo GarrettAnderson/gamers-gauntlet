@@ -15,4 +15,36 @@ router.get('/', async (req, res) => {
     }
   })
 
-module.exports = Score
+router.post('/', async (req, res) => {
+    console.log('req.body:', req.body)
+    try {
+        const newScore = await Score.create({
+        ...req.body,
+        user_id: req.body.user_id
+        });
+
+        res.status(200).json(newScore);
+    } catch (err) {
+        res.status(400).json(err);
+    }
+  });
+
+router.delete('/:id', async(req, res) => {
+    try {
+        const deleteScore = await Score.destroy({
+            where: {
+                id: req.params.id
+            }
+        });
+
+        if (!deleteScore) {
+            res.status(404).json({message: 'No score with that id'})
+            return
+        }
+        res.status(200).json(deleteScore)
+    } catch (err) {
+        res.status(500).json(err)
+    }
+})
+
+module.exports = router
