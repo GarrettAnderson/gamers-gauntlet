@@ -1,0 +1,213 @@
+-# Quiz template markup
+
+-# Options
+- question = 'In what popular video game would you find this?'
+- instruction = 'Click on an answer or use the number keys'
+- hint = 'Need a hint?'
+
+-# SVG squiggles taken from https://codepen.io/lbebber/pen/KwGEQv?q=squiggly&limit=all&type=type-pens
+%svg{:version => "1.1", :xmlns => "http://www.w3.org/2000/svg"}
+    %defs
+        %filter#squiggly-0
+            %feturbulence#turbulence{:basefrequency => "0.06", :numoctaves => "3", :result => "noise", :seed => "0"}
+            %fedisplacementmap#displacement{:in => "SourceGraphic", :in2 => "noise", :scale => "6"}
+        %filter#squiggly-1
+            %feturbulence#turbulence{:basefrequency => "0.06", :numoctaves => "3", :result => "noise", :seed => "1"}
+            %fedisplacementmap{:in => "SourceGraphic", :in2 => "noise", :scale => "8"}
+        %filter#squiggly-2
+            %feturbulence#turbulence{:basefrequency => "0.06", :numoctaves => "3", :result => "noise", :seed => "2"}
+            %fedisplacementmap{:in => "SourceGraphic", :in2 => "noise", :scale => "6"}
+        %filter#squiggly-3
+            %feturbulence#turbulence{:basefrequency => "0.06", :numoctaves => "3", :result => "noise", :seed => "3"}
+            %fedisplacementmap{:in => "SourceGraphic", :in2 => "noise", :scale => "8"}
+        %filter#squiggly-4
+            %feturbulence#turbulence{:basefrequency => "0.06", :numoctaves => "3", :result => "noise", :seed => "4"}
+            %fedisplacementmap{:in => "SourceGraphic", :in2 => "noise", :scale => "6"}
+
+-# Grain and vignette
+.overlay
+
+-# Main markup
+
+.options
+    .options_sf
+        %img{:src => 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/sfIcon2.png'}
+    .options_bg
+        %img{:src => 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/bgIcon2.png'}
+        
+.main
+    .main_inner
+        .main_inner__loading
+
+            .bg
+                %img{:src => 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/mars_sunburst.png'}
+            .loader
+                .text
+                    %span V
+                    %span i
+                    %span d
+                    %span e
+                    %span o
+                    .s
+                        %span g
+                        %span a
+                        %span m
+                        %span e
+                        %span &nbsp
+                        %span q
+                        %span u
+                        %span i
+                        %span z
+
+                %p
+                    %button Click anywhere to play
+        .main_inner__modalOverlay
+        .main_inner__modal
+        .main_inner__modalContent
+            %h1 Quiz complete!
+            %p.score You got 7 out of 8 correct!
+            %p Don't forget to follow the talented bunch that contributed to this pen. They are:
+            %a{:href => 'https://www.codepen.io/jotavejv', :target => '_blank'} João Santos
+            %a{:href => 'https://www.codepen.io/kathykato', :target => '_blank'} Katherine Kato
+            %a{:href => 'https://www.codepen.io/KristopherVanSant', :target => '_blank'} Kristopher Van Sant
+            %a{:href => 'https://www.codepen.io/jnwright', :target => '_blank'} Jasmine Wright
+            %a{:href => 'https://www.codepen.io/miffili', :target => '_blank'} Klara Miffili
+            
+            
+            %button.share Tweet your score
+            
+        -# Pass the pen logo
+        .main_inner__logo
+            %a{:href => ''}
+                %img{:src => 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/vgqlogo.svg'}
+        -# Question
+        .main_inner__title
+            %h1 #{question}
+            %p #{instruction}
+            %a #{hint}
+            .hint
+        -# Scene cricle backdrop
+        .main_inner__circle
+        -# Scene right or wrong feedback
+        .main_inner__feedback
+        -# Scenes container
+        .main_inner__scenes
+        
+            -# ------------------------------------------------------------------------------------------
+            -# Paste or write your scene markup to a new .scene parent div after other scenes.
+            -# Use this nifty convertor if you write in plain html https://html2haml.herokuapp.com/
+            -# Scene class must match array name, Message Jamie in slack if you get stuck.
+            -# Scene object must be no bigger than 200px wide x 275px high
+            -# ------------------------------------------------------------------------------------------
+            
+            -# Scene
+            
+            .scene.akuaku
+                .container
+                    .feather
+                    .feather
+                    .feather
+                    .feather
+                    .body
+                    .eyebrows
+                    .eyebrows
+                    .eye
+                    .eye
+                    .nose
+                    .lip
+                    .lip
+                    .beard
+                    .beard
+            -# Aku Aku scene
+            .scene.kirby
+                #container
+                    .kirby
+                        .body
+                            .face
+                                .eyes
+                                    .eye
+                                    .eye
+                                .mouth
+                                .cheeks
+                                    .cheek
+                                    .cheek
+                            .arms
+                                .arm
+                                .arm
+                            .feet
+                                .foot
+                                .foot
+            -# Your scene
+            .scene.hexipal
+                #hexipal
+                    .hexagon1
+                    .hexagon2
+                    .hexagon3
+                    .hexagon4
+                    .eyes
+                        .eye
+                        .eye
+                    .smile U
+                    .left-arm
+                    .left-hands E
+                    .right-arm
+                    .right-hands E
+                    .left-leg
+                    .right-leg
+                
+            -# Your scene
+            .scene.moogle
+                .container
+                    .ball
+                    .head
+                        .nose
+                        .cheeks
+                        .eyes
+                    .body
+                    .feet
+                    .ears
+                    .inside
+                    .wings
+                    .wings2
+            .scene.mario
+                .container
+                    .hat
+                        .main
+                        .label
+                            %p M
+                        .screen
+                    .ears
+                        .ear.left
+                        .ear.right
+                    .head
+                        .hair
+                            .hair-back.left
+                            .hair-back.right
+                        .face
+                        .mustache
+                            .detail.farleft
+                            .detail.left
+                            .detail.right
+                            .detail.farright
+                            .main
+                        .eyes
+                            .eye.left
+                            .eye.right
+                        .nose
+                    .brows
+                        .brow.left
+                        .brow.right
+        .main_inner__info
+            %p CSS illustration by
+            %span
+            %a.codepen{:href => '#', :target => '_blank'}
+                %i.fa.fa-codepen
+            %a.twitter{:href => '#', :target => '_blank'}
+                %i.fa.fa-twitter
+        -# Scene answers, all generated through the JS.
+        .main_inner__answers
+            -(1..3).each do
+                .answer
+        -# Quiz progress element
+        .main_inner__breadcrumbs
+%canvas.grain
