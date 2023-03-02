@@ -1,3 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
 header, .project:not(:last-child) {
   border-bottom: 1px solid #ccc;
 }
