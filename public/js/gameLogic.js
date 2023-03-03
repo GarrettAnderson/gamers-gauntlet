@@ -1,12 +1,14 @@
-let currentQuestion = document.querySelector('#question')
+const currentQuestion = document.querySelector('#question')
 
-let option1 = document.querySelector('#option1')
-let option2 = document.querySelector('#option2')
-let option3 = document.querySelector('#option3')
-let option4 = document.querySelector('#option4')
-let optBtn = document.querySelector('.option-btn')
+const option1 = document.querySelector('#option1')
+const option2 = document.querySelector('#option2')
+const option3 = document.querySelector('#option3')
+const option4 = document.querySelector('#option4')
+const optBtn = document.querySelector('.option-btn')
 
-let starter = document.querySelector('#start')
+const starter = document.querySelector('#start')
+const rulesBox = document.querySelector('.info_box');
+const testBox = document.querySelector('#quiz')
 
 let question_number = -1
 
@@ -24,10 +26,6 @@ let int = null;
 
 
 let testTime = 23
-
-// const setTimeScore = () => {
-//     let totalTime = 
-// }
 
 //event listeners for the buttons on the actual test taking page
 option1.addEventListener('click', () => {
@@ -120,6 +118,10 @@ starter.addEventListener('click', () => {
 
     displayTimer();
     int = setInterval(displayTimer, 10);
+
+    rulesBox.classList.add('hidden');
+    rulesBox.classList.remove('hidden');
+
 })
 
 
@@ -170,21 +172,20 @@ const isOver = () => {
         if (minutes > 1) {
             testTime = (minutes + ' Minutes ' + seconds + '.' + milliseconds + ' seconds')
             console.log(testTime)
-        } 
+        }
 
         if (minutes == 1) {
             testTime = (minutes + ' Minute ' + seconds + '.' + milliseconds + ' seconds')
             console.log(testTime)
-        } 
+        }
 
         if (minutes < 1) {
             testTime = (seconds + '.' + milliseconds + ' seconds')
             console.log(testTime)
-        } 
-
+        }
 
         localStorage.setItem("testTime", JSON.stringify(testTime))
-        // location.replace('https://www.youtube.com/watch?v=ypRJ9ScLmco')
+        location.replace('/results')
 
     }
 }
