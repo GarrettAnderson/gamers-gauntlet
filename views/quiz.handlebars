@@ -1,30 +1,32 @@
 <!-- start Quiz button -->
-    <button id='start' class='option-btn'>Start</button>
+<button id='start' class='option-btn'>Start</button>
 
-    <!-- Info Box -->
-    <div class="info_box">
-        <div class="info-title"><span>Some Rules of this Quiz</span></div>
-        <div class="info-list">
-           <div class="info">1. There are 25 questions</div>
-            <div class="info">2. Once you select your answer, it can't be undone.</div>
-            <div class="info">3. The timer will start as soon as the start button is pressed and the timer will be stopped once the final answer choice has been selectetd</div>
-            <div class="info">4. There will be a 2 second penalty for each incorrect answer</div>
-        </div>
-        <div class="buttons">
-            <button class="quit">Exit Quiz</button>
-            <button class="restart">Continue</button>
-        </div>
-    </div>
+<!-- Info Box -->
+<div class="info_box">
+  <div class="info-title"><span>Some Rules of this Quiz</span></div>
 
-    <!-- Quiz Box -->
-      <p class='timerDisplay'>00 : 00 : 00 </p>
-      <div class="quiz" class='hidden'>
-        <p id="question"></p>
-        <p id="answer-choices">
-          <button id='option1' class='option-btn'></button>
-          <button id='option2' class='option-btn'></button>
-          <button id='option3' class='option-btn'></button>
-          <button id='option4' class='option-btn'></button>
-        </p>
-      </div>
-    <script src='../public/js/gameLogic.js'></script>
+  <div class="info-list">
+    <div class="info">1. There are 25 questions</div>
+    <div class="info">2. Once you select your answer, it can't be undone.</div>
+    <div class="info">3. The timer will start as soon as the start button is pressed and the timer will be stopped once the final answer choice has been selected</div>
+    <div class="info">4. There will be a 2 second penalty for each incorrect answer</div>
+  </div>
+
+  <div class="buttons">
+    <button class="quit">Exit Quiz</button>
+    <button class="restart">Continue</button>
+  </div>
+</div>
+
+<!-- Quiz Box -->
+<div id="quiz" class='hidden'></div>
+  <p class='timerDisplay'>00 : 00 : 00 </p>
+  <p id="question"></p>
+  <p id="answer-choices">
+    <button id='option1' class='option-btn'></button>
+    <button id='option2' class='option-btn'></button>
+    <button id='option3' class='option-btn'></button>
+    <button id='option4' class='option-btn'></button>
+  </p>
+</div>
+<script src='../public/js/gameLogic.js'></script>
