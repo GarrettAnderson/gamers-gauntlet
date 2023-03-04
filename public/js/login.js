@@ -1,4 +1,5 @@
 const loginFormHandler = async (event) => {
+  console.log('login btn clicked')
   event.preventDefault();
 
   // Collect values from the login form
@@ -15,7 +16,7 @@ const loginFormHandler = async (event) => {
 
     if (response.ok) {
       // If successful, redirect the browser to the profile page
-      document.location.replace('/profile');
+      document.location.replace('/quiz');
     } else {
       alert(response.statusText);
     }
@@ -36,7 +37,7 @@ const signupFormHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace('/profile');
+      document.location.replace('/quiz');
     } else {
       alert(response.statusText);
     }
@@ -45,8 +46,8 @@ const signupFormHandler = async (event) => {
 
 document
   .querySelector('.login-form')
-  .addEventListener('submit', loginFormHandler);
+  .addEventListener('click', loginFormHandler);
 
-document
-  .querySelector('.signup-form')
-  .addEventListener('submit', signupFormHandler);
+// document
+//   .querySelector('.signup-form')
+//   .addEventListener('submit', signupFormHandler);
