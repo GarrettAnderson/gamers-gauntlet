@@ -52,16 +52,28 @@ router.get('/', async (req, res) => {
 // Use withAuth middleware to prevent access to route
 router.get('/results', withAuth, async (req, res) => {
   try {
-    // Find the logged in user based on the session ID
-    const userData = await User.findByPk(req.session.user_id, {
-      attributes: { exclude: ['password'] },
-      include: [{ model: Score }],
-    });
+  //   // Find the logged in user based on the session ID
+  //   const userData = await User.findByPk(req.session.user_id, {
+  //     attributes: { exclude: ['password'] },
+  //     include: [{ model: Score }],
+  //   });
 
-    const user = userData.get({ plain: true });
+  //   const user = userData.get({ plain: true });
+  const scoreData = await Score.findAll({
+    include: [
+      {
+        model: User,
+        attributes: ['username'],
+      },
+    ],
+  });
 
+  // Serialize data so the template can read it
+  const scores = scoreData.map((score) => score.get({ plain: true }));
+
+  // Pass serialized data and session flag into template
     res.render('results', {
-      ...user,
+      // ...user,
       logged_in: true
     });
   } catch (err) {
