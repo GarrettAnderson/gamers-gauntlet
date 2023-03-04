@@ -50,7 +50,7 @@ router.get('/', async (req, res) => {
 // });
 
 // Use withAuth middleware to prevent access to route
-router.get('/profile', withAuth, async (req, res) => {
+router.get('/results', withAuth, async (req, res) => {
   try {
     // Find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, {
@@ -60,7 +60,7 @@ router.get('/profile', withAuth, async (req, res) => {
 
     const user = userData.get({ plain: true });
 
-    res.render('profile', {
+    res.render('results', {
       ...user,
       logged_in: true
     });
@@ -69,11 +69,36 @@ router.get('/profile', withAuth, async (req, res) => {
   }
 });
 
+router.get('/quiz', (req, res) => {
+  // try {
+    // Get all projects and JOIN with user data
+    // const scoreData = await Score.findAll({
+    //   include: [
+    //     {
+    //       model: User,
+    //       attributes: ['username'],
+    //     },
+    //   ],
+    // });
+
+    // Serialize data so the template can read it
+    // const scores = scoreData.map((score) => score.get({ plain: true }));
+
+    // Pass serialized data and session flag into template
+    res.render('quiz', { 
+      logged_in: req.session.logged_in 
+    });
+  // } catch (err) {
+  //   res.status(500).json(err);
+  // }
+});
+
+
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect the request to another route
   // 
   if (req.session.logged_in) {
-    res.redirect('/profile');
+    res.redirect('/quiz');
     return;
   }
 
