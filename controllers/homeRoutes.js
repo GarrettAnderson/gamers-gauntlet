@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { User, Score } = require('../models');
 const withAuth = require('../utils/auth');
 
-router.get('/', async (req, res) => {
+router.get('/results', async (req, res) => {
   try {
     // Get all projects and JOIN with user data
     const scoreData = await Score.findAll({
@@ -18,7 +18,7 @@ router.get('/', async (req, res) => {
     const scores = scoreData.map((score) => score.get({ plain: true }));
 
     // Pass serialized data and session flag into template
-    res.render('homepage', { 
+    res.render('results', { 
       scores, 
       logged_in: req.session.logged_in 
     });
@@ -60,7 +60,7 @@ router.get('/profile', withAuth, async (req, res) => {
 
     const user = userData.get({ plain: true });
 
-    res.render('profile', {
+    res.render('quiz', {
       ...user,
       logged_in: true
     });
@@ -68,6 +68,16 @@ router.get('/profile', withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+router.get('/quiz', withAuth, (req, res) => {
+  // try {
+    res.render('quiz', {
+      logged_in: true
+    });
+  // } catch (err) {
+  //   res.status(500).json(err);
+  // }
+})
 
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect the request to another route

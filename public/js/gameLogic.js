@@ -27,6 +27,7 @@ let int = null;
 
 let testTime = 23
 
+
 //event listeners for the buttons on the actual test taking page
 option1.addEventListener('click', () => {
     // event.preventDefault();
@@ -103,6 +104,8 @@ option4.addEventListener('click', () => {
 
 // start button to allow the user to start teh timer and test when thye are fully ready
 starter.addEventListener('click', () => {
+    console.log('strt quiz')
+
     question_number = -1
 
     question_set = []
