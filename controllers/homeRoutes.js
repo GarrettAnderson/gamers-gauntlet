@@ -106,10 +106,12 @@ router.get('/highscores', async (req, res) => {
   });
   
   const scores = scoreData.map((score) => score.get({ plain: true }));
-  // console.log('scores:', scores)
+  console.log('scores:', scores)
+  const highScores = scores.filter((score) => score.score >= 20)
   // const scores = [{score: 70}]
+  console.log(highScores)
   res.render('highscores', { 
-    scores: scores
+    scores: highScores
     // logged_in: false 
   });;
 });
