@@ -16,7 +16,7 @@ router.get('/', async (req, res) => {
   })
 
 router.post('/', async (req, res) => {
-    console.log('req.body:', req.body)
+    console.log('post score route hit:', req.body)
     try {
         const newScore = await Score.create({
         ...req.body,
