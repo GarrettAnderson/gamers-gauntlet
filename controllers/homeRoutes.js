@@ -88,6 +88,11 @@ router.get('/quiz', (req, res) => {
 
 });
 
+router.get('/createaccount', (req, res) => {
+  res.render('createaccount', { 
+    logged_in: false 
+  });;
+});
 
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect the request to another route
