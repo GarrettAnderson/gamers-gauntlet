@@ -33,6 +33,20 @@ body {
   margin:0 auto;
 }
 
+h4 {
+  font-size: 20px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  color: white;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+h4:hover {
+  /* Set hover style */
+  color:#eb2cbb;
+}
+
 .box {
   width:150px;
   border:1px solid #222;
