@@ -4,10 +4,10 @@ const exitQuiz = document.querySelector('#quit');
 
 const displayScore = async () => {
     let previousScore = JSON.parse(localStorage.getItem("testTime"))
-    scoreDisplay.textContent = previousScore
+    scoreDisplay.textContent = `YOUR SCORE: ${previousScore}`
     console.log(previousScore)
 
-    
+
     const response = await fetch('/api/scores', {
         method: 'POST',
         body: JSON.stringify({score: previousScore}),
