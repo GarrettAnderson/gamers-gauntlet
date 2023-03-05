@@ -16,13 +16,13 @@ router.get('/', async (req, res) => {
   })
 
 router.post('/', async (req, res) => {
-    console.log('req.body:', req.body)
+    console.log('post score route hit:', req.body)
     try {
         const newScore = await Score.create({
         ...req.body,
-        user_id: req.body.user_id
+        user_id: req.session.user_id
         });
-
+        console.log(newScore)
         res.status(200).json(newScore);
     } catch (err) {
         res.status(400).json(err);
