@@ -94,6 +94,28 @@ router.get('/createaccount', (req, res) => {
   });;
 });
 
+router.get('/highscores', async (req, res) => {
+  
+  const scoreData = await Score.findAll({
+    include: [
+      {
+        model: User,
+        attributes: ['username'],
+      },
+    ],
+  });
+  
+  const scores = scoreData.map((score) => score.get({ plain: true }));
+  console.log('scores:', scores)
+  const highScores = scores.filter((score) => score.score >= 20)
+  // const scores = [{score: 70}]
+  console.log(highScores)
+  res.render('highscores', { 
+    scores: highScores
+    // logged_in: false 
+  });;
+});
+
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect the request to another route
   // 

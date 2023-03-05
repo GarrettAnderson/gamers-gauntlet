@@ -1,0 +1,8 @@
+<ol>
+    {{#each scores as |score|}}
+
+        {{#if score.user.username}}
+        <li>{{score.user.username}}: {{score.score}}</li>
+        {{/if}}
+    {{/each}}
+</ol>
