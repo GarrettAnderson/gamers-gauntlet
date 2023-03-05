@@ -5,19 +5,20 @@ const exitQuiz = document.querySelector('#quit');
 const displayScore = async () => {
     let previousScore = JSON.parse(localStorage.getItem("testTime"))
     scoreDisplay.textContent = previousScore
-    
-    // const response = await fetch('/api/scores', {
-    //     method: 'POST',
-    //     body: JSON.stringify({previousScore}),
-    //     headers: { 'Content-Type': 'application/json' },
-    //   });
+    console.log(previousScore)
+    const response = await fetch('/api/scores', {
+        method: 'POST',
+        body: JSON.stringify({score: previousScore}),
+        headers: { 'Content-Type': 'application/json' },
+      });
   
-    //   if (response.ok) {
-    //     // document.location.replace('/quiz');
-    //     console.log('posted score')
-    //   } else {
-    //     alert(response.statusText)
-    //   }
+      if (response.ok) {
+        // document.location.replace('/quiz');
+        console.log('posted score')
+      } else {
+        console.log('posted score failed')
+        alert(response.statusText)
+      }
 }
 
 restart.addEventListener('click', () => {

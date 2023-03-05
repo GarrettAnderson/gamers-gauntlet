@@ -184,7 +184,8 @@ const isOver = () => {
             console.log(testTime)
         }
 
-        localStorage.setItem("testTime", JSON.stringify(testTime))
+        // localStorage.setItem("testTime", JSON.stringify(testTime))
+        localStorage.setItem("testTime", JSON.stringify(answeredRight))
         location.replace('/results')
 
     }
