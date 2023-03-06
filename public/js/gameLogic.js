@@ -185,7 +185,7 @@ const isOver = () => {
         }
 
         // localStorage.setItem("testTime", JSON.stringify(testTime))
-        localStorage.setItem("testTime", JSON.stringify(answeredRight))
+        localStorage.setItem("testTime", JSON.stringify(seconds))
         location.replace('/results')
 
     }

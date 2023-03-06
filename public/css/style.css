@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
 body {
   padding:20px;
   position:absolute;
@@ -24,6 +31,20 @@ body {
   background-size: 200px 200px;
   max-width:650px;
   margin:0 auto;
+}
+
+h4 {
+  font-size: 20px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  color: white;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+h4:hover {
+  /* Set hover style */
+  color:#eb2cbb;
 }
 
 .box {
@@ -54,3 +75,148 @@ body {
   float:left;
 }
 
+img {
+  display: inline-block;
+  align-items: center;
+}
+
+ol {
+  display: inline-block;
+  align-items: center;
+}
+
+/* CSS for Start Quiz button */
+#start {
+  font-size: 20px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  background-color: #eb2cbb;
+  color: white;
+  border: none;
+}
+
+/* CSS for Info Box */
+.info_box {
+  background-color: #987cfa;
+  padding: 20px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.info-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.info-list {
+  margin-bottom: 10px;
+}
+
+.info {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.quit, .restart {
+  font-size: 20px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.quit {
+  background-color: #47bed3;
+  color: white;
+}
+
+.restart {
+  background-color: #eb2cbb;
+  color: white;
+}
+
+/* CSS for Quiz Box */
+#quiz {
+  padding: 20px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.hidden {
+  display: none;
+}
+
+.timerDisplay {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+#question {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+#answer-choices {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.option-btn {
+    background: aliceblue;
+    border: 1px solid #84c5fe;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 17px;
+    color: #222;
+    margin-bottom: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 20px;
+}
+
+.option-btn:hover {
+  background-color: #eb2cbb;
+  color: white;
+}
+
+/* CSS for Results Box */
+#result_box {
+  padding: 20px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+#finalScore {
+  font-size: 20px;
+  margin-bottom: 10px;
+  border: 1px solid #84c5fe;
+  border-radius: 5px;
+  padding: 10px 20px;
+}
+
+#restart {
+  font-size: 20px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  background-color: #eb2cbb;
+  color: white;
+  border: none;
+}
+
+#quit {
+  font-size: 20px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  background-color: #eb2cbb;
+  color: white;
+  border: none;
+}
