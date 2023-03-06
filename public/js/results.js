@@ -5,7 +5,7 @@ const exitQuiz = document.querySelector('#quit');
 const displayScore = async () => {
     let previousScore = JSON.parse(localStorage.getItem("testTime"))
     // scoreDisplay.textContent = `${previousScore}`
-    scoreDisplay.textContent = `YOUR SCORE: ${previousScore}/25`
+    scoreDisplay.textContent = `YOUR SCORE: ${previousScore}`
     console.log(previousScore)
 
 
